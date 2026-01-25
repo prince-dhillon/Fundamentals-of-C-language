@@ -1,22 +1,24 @@
 #include<stdio.h>
-int s= 0;
-int sum(int);
+int fib(int);
 
-int sum(int x){
-    if(x){
-        s+=x;
-        return sum(x-1);
+int fib(int x){
+    if(x == 1 || x==2){
+        return 1;
     }
-    else{
-        return s;
+    else if(x==0){
+        return 0;
     }
-
+    else
+    {
+        return fib(x-1) + fib(x-2);
+    }
+    
 }
 int main(){
     int n;
     printf("Enter Number: ");
     scanf("%d",&n);
-    int c = sum(n);
-    printf("Sum of first %d is %d",n,c);
+    int c = fib(n);
+    printf("Factorial of %d is %d",n,c);
     return 0;
 }
